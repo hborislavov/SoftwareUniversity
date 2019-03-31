@@ -1,0 +1,30 @@
+package ExamPREP;
+
+import java.util.Scanner;
+
+public class SeaTrip {
+
+    public static final double PETROL_PRICE = 1.85;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int road = 420;
+        double totalRoadPetrol = (7 / 100d) * road;
+        totalRoadPetrol *= PETROL_PRICE;
+        int otstupka = 10;
+        int overallSum = 0;
+        int counter =0;
+        double moneyFood = scanner.nextDouble();
+        double moneySouvenirs = scanner.nextDouble();
+        double moneyHotel = scanner.nextDouble();
+        
+        while(counter < 3) {
+            double sumHotel = moneyHotel - ((otstupka / 100d) * moneyHotel);
+            overallSum += moneyFood + moneySouvenirs + sumHotel;
+            otstupka += 5;
+            counter++;
+        }
+        System.out.println(overallSum + totalRoadPetrol);
+    }
+}
