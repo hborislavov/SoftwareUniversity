@@ -1,0 +1,34 @@
+package whileCicle;
+
+import java.util.Scanner;
+
+public class waterDispenser {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int kol = Integer.parseInt(scanner.nextLine());
+        int buttonTaps = 0;
+        int volume = 0;
+        String button = "";
+
+        while(volume < kol) {
+            ++buttonTaps;
+            button = scanner.nextLine();
+            switch (button) {
+                case "Easy":
+                    volume += 50.00;
+                    break;
+                case "Medium":
+                    volume += 100.00;
+                    break;
+                case "Hard":
+                    volume += 200.00;
+                    break;
+            }
+        }
+        if(volume == kol) {
+            System.out.println("The dispenser has been tapped " + buttonTaps + " times.");
+        } else {
+            System.out.println((volume - kol) + "ml has been spilled.");
+        }
+    }
+}
