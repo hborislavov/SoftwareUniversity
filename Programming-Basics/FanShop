@@ -1,0 +1,39 @@
+package ExamPREP;
+
+import java.util.Scanner;
+
+public class task5FanShop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int budget = Integer.parseInt(scanner.nextLine());
+        int itemsCount = Integer.parseInt(scanner.nextLine());
+        int neededMoney = 0;
+
+        for (int i = 0; i < itemsCount; i++) {
+          String itemName = scanner.nextLine();
+          switch (itemName) {
+              case "hoodie":
+                  neededMoney += 30;
+                  break;
+              case "keychain":
+                  neededMoney += 4;
+                  break;
+              case "T-shirt":
+                  neededMoney += 20;
+                  break;
+              case "flag":
+                  neededMoney += 15;
+                  break;
+              case "sticker":
+                  neededMoney += 1;
+                  break;
+          }
+        }
+        int diff = budget - neededMoney;
+        if(diff >= 0) {
+            System.out.printf("You bought %d items and left with %d lv.", itemsCount,diff);
+        } else {
+            System.out.printf("Not enough money, you need %d more lv.", Math.abs(diff));
+        }
+    }
+}
