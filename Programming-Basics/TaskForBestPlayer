@@ -1,0 +1,33 @@
+package ExamPREP;
+
+import java.util.Scanner;
+
+public class task4BestPlayer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int topScore = 0;
+        String topScorerName = "";
+
+        while (true) {
+            String playerName = scanner.nextLine();
+            if (playerName.equals("END")) {
+                break;
+            }
+            int goalsScored = Integer.parseInt(scanner.nextLine());
+            if (goalsScored > topScore) {
+                topScore = goalsScored;
+                topScorerName = playerName;
+            }
+            if (goalsScored >= 10) {
+                break;
+            }
+        }
+        System.out.printf("%s is the best player!%n", topScorerName);
+        if (topScore >= 3) {
+            System.out.printf("He has scored %d goals and made a hat-trick !!!", topScore);
+        } else {
+            System.out.printf("He has scored %d goals.", topScore);
+        }
+
+    }
+}
