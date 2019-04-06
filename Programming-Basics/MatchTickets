@@ -1,0 +1,38 @@
+package NestedConditionalStatements;
+
+import java.util.Scanner;
+
+public class matchTickets {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        String type = scanner.nextLine();
+        int fans = Integer.parseInt(scanner.nextLine());
+        if (fans <= 4) {
+            budget = budget - budget * 0.75;
+        } else if (fans <= 9) {
+            budget = budget - budget * 0.6;
+        } else if (fans <= 24) {
+            budget = budget - budget * 0.5;
+        } else if (fans <= 49) {
+            budget = budget - budget * 0.4;
+        } else {
+            budget = budget - budget * 0.25;
+        }
+        double ticketsPrice = 0;
+
+        if (type.equals("VIP")) {
+            ticketsPrice = fans * 499.99;
+        } else if (type.equals("Normal")) {
+            ticketsPrice = fans * 249.99;
+        }
+
+        double result = budget - ticketsPrice;
+        if (result >= 0) {
+            System.out.printf("Yes! You have %.2f leva left.", result);
+        } else {
+            System.out.printf("Not enough money! You need %.2f leva.", Math.abs(result));
+        }
+    }
+}
